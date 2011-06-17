@@ -1,0 +1,49 @@
+Kinect Talk Blah Blah Blah
+
+
+Cold open: Launch Emacs with your beard
+
+- Licenses for projects
+- Mention LadyAda
+- Shiffman vs. OpenNI
+- Simple OpenNI
+
+Demos:
+- Gesture recognition:
+  - More Emacs with your beard: fake typing
+  - Thumbs up / thumbs down for browser tabs
+  - Seriously, though: Hyperkinetic motion disorder
+- Point clouds:
+  - Look at one
+  - Live scan point cloud
+  - Scan and fabricate: Kevin Kelley
+- SLAM
+- Live 3D scene panning
+
+Come back to at the end:
+- More advanced tools: OpenFrameworks, Cinder, Microsoft’s library?
+- MaxMSP plugin
+- Animata
+What is the kinect? ~10slides
+What are the tools?
+Processing
+OpenFrameworks
+Cinder?/C++ library
+
+Concepts
+
+Skeletons
+Depth map
+Controlling other programs: Robot
+
+Stupid Tricks
+
+Emacs + prosthetic beard: stroke the beard to engage meta-mode? Nod sagely to answer “yes” to a prompt?
+Watching YouTube: raise your hand, the video pauses, you gesticulate thumbs-up or thumbs-down to control playback
+Reading the NYTimes: you gesticulate as if pushing someone away to open the page in Readability
+Using Mac OS X: you crane your head to the left/right to “peek” into neighboring desktop spaces
+Using AIM: you write a message in semaphore code or with an Aldis lamp
+Using your computer: makes you take a yoga break every 10 minutes
+Start waving your hands like the sorcerer’s apprentice: the song starts playing, and your windows start dancing and multiplying
+Harry Potter: “Accio <Appname>” + gesticulation to bring it to the front
+Red Light/Green Light: Processing does something naughty, but only when you’re not looking.
