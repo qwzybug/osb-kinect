@@ -6,19 +6,14 @@ http://doormouse.org/misc/devin.skel
 
 */
 
-
-import java.awt.Robot;
-import java.awt.event.KeyEvent;
 import SimpleOpenNI.*;
 
 SimpleOpenNI  kinect;
 
-boolean running = false;
+boolean judging = false;
 boolean devinMode = false;
 
 boolean debug = true;
-
-boolean judging = false;
 
 // no enums in processing...
 // public enum HandPosition { NONE, LOW, MID, HIGH }
@@ -27,8 +22,6 @@ public static final int HAND_LOW  = 1;
 public static final int HAND_MID  = 2;
 public static final int HAND_HIGH = 3;
 
-Robot robot;
-
 void setup() {
   
    kinect = new SimpleOpenNI(this);
@@ -36,11 +29,6 @@ void setup() {
 
    kinect.enableUser(SimpleOpenNI.SKEL_PROFILE_ALL);
   
-  try{
-    robot = new Robot(); 
-  } catch (java.awt.AWTException ex) { 
-    println("Problem initializing AWT Robot: " + ex.toString()); 
-  }
   
      size(640, 480);
   
@@ -126,18 +114,38 @@ void draw(){
   }
 }
 
+void runShell(String sh) {
+  try{
+    Runtime.getRuntime().exec(sh);
+  } catch (IOException ex) {
+     println(ex.toString());
+  }
+}
+
+void doAppleScript(String scr) {
+  try {
+    Runtime runtime = Runtime.getRuntime();
+    String[] args = { "osascript", "-e", scr };
+    runtime.exec(args);
+  } catch (IOException ex) {
+    println(ex.toString());
+  }
+}
+
 void startJudging() {
-  println("Judging...");
+  doAppleScript("tell application \"Safari\" to activate");
   judging = true;
 }
 
 void doKill() {
-  println("KILL!");
+  doAppleScript("tell application \"Safari\" to activate");
+  doAppleScript("tell application \"Safari\" to close current tab of front window");
   judging = false;
 }
 
 void doSpare () {
-  println("SPARE!");
+  doAppleScript("tell application \"Safari\" to activate");
+  doAppleScript("tell application \"System Events\" to tell process \"Safari\" to click menu item \"Select Next Tab\" of menu \"Window\" of menu bar 1");
   judging = false;
 }
 
@@ -166,11 +174,8 @@ void keyPressed(){
   if (key == 'r') {
     // reset
     devinMode = false;
-    running = false;
+    judging = false;
   }
-}
-
-void mousePressed(){
 }
 
 
