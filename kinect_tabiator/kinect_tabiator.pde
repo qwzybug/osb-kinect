@@ -14,6 +14,7 @@ boolean judging = false;
 boolean devinMode = false;
 
 boolean debug = true;
+boolean showGladiator = true;
 
 // no enums in processing...
 // public enum HandPosition { NONE, LOW, MID, HIGH }
@@ -134,18 +135,24 @@ void doAppleScript(String scr) {
 
 void startJudging() {
   doAppleScript("tell application \"Safari\" to activate");
+  if (showGladiator)
+    runShell("/usr/bin/open /Users/d/Desktop/suspense.mp4");
   judging = true;
 }
 
 void doKill() {
   doAppleScript("tell application \"Safari\" to activate");
   doAppleScript("tell application \"Safari\" to close current tab of front window");
+  if (showGladiator)
+    runShell("/usr/bin/killall VLC");
   judging = false;
 }
 
 void doSpare () {
   doAppleScript("tell application \"Safari\" to activate");
   doAppleScript("tell application \"System Events\" to tell process \"Safari\" to click menu item \"Select Next Tab\" of menu \"Window\" of menu bar 1");
+  if (showGladiator)
+    runShell("/usr/bin/killall VLC");
   judging = false;
 }
 
