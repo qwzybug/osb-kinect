@@ -310,7 +310,7 @@ void type(CharSequence characters) {
         case ')': doType(KeyEvent.VK_SHIFT, KeyEvent.VK_0); break;
         case '_': doType(KeyEvent.VK_SHIFT, KeyEvent.VK_MINUS); break;
         case '+': doType(KeyEvent.VK_SHIFT, KeyEvent.VK_EQUALS); break;
-        case '\t': doType(KeyEvent.VK_TAB); break;
+        case '\t': doType(KeyEvent.VK_SPACE); doType(KeyEvent.VK_SPACE); doType(KeyEvent.VK_SPACE); doType(KeyEvent.VK_SPACE); break;
         case '\n': doType(KeyEvent.VK_ENTER); break;
         case '[': doType(KeyEvent.VK_OPEN_BRACKET); break;
         case ']': doType(KeyEvent.VK_CLOSE_BRACKET); break;
