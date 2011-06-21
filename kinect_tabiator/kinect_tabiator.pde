@@ -78,7 +78,7 @@ void draw(){
   kinect.getJointPositionSkeleton(user, SimpleOpenNI.SKEL_LEFT_HAND, leftHand);
 
   // check if the hand is far enough away
-  float zDistance = abs(neck.z - leftHand.z);
+  float zDistance = neck.z - leftHand.z;
   if (debug)
     text(round(zDistance), 5, 424);
   
