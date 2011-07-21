@@ -76,8 +76,8 @@ void draw(){
   else
     return;
   
-  float leftHandDistance = 1000;
-  float rightHandDistance = 1000;
+  float leftHandDistance = -1;
+  float rightHandDistance = -1;
   float handsZDistance = -1;
 
   if (kinect.isTrackingSkeleton(user)) {
@@ -101,7 +101,7 @@ void draw(){
     }
   } 
   
-  if (handsZDistance < 0)
+  if (handsZDistance < 0 || leftHandDistance < 0 || rightHandDistance < 0)
     return;
   
   if(!running && leftHandDistance < 100) {
